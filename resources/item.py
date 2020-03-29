@@ -29,7 +29,7 @@ class Item(Resource): # resource are all classes, resource is used to map endpoi
     @jwt_required()
     def post(self,name):
         if ItemModel.find_by_name(name):
-            return {'message': f'An item named {name} already exists'}, 400
+            return {'message': 'item already exists'}, 400
         data = Item.parser.parse_args()
 
                # data = request.get_json() - > must set the Content type in postman properly (force=True in get_jston parameter prevents this error)/
